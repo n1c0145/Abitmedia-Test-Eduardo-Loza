@@ -1,7 +1,12 @@
-<p>payments-reverse works!</p>
+<div class="container text-center">
+
+  <h2>Devolución/extornación de una transacción</h2>
 
 <form [formGroup]="Formulario" (ngSubmit)="enviar()">
     <div>
+      <div class="text-start">
+        <label for="exampleFormControlInput1" class="form-label">Ingrese el token</label>
+      </div>
       <input
         type="text"
         class="form-control"
@@ -20,6 +25,7 @@
     </div>
     </div>
   
-    <button type="submit" [disabled]="Formulario.invalid">Enviar</button>
+    <button type="submit" [disabled]="Formulario.invalid" class="btn btn-primary btn-lg mt-2">Enviar</button>
   </form>
   
+</div>

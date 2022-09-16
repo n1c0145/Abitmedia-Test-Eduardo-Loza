@@ -1,10 +1,13 @@
-<div class="container">
-  <p>payments-create-payment-request works!</p>
+<div class="container text-center">
+  <h2>Generación de una solicitud de pago</h2>
   <form [formGroup]="Formulario" (ngSubmit)="enviar()">
     <div>
+      <div class="text-start">
+        <label for="exampleFormControlInput1" class="form-label">	Tipo de empresa</label>
+      </div>
       <input
         type="text"
-        class="form-control"
+        class="form-control mb-2"
         name="companyType"
         id="companyType"
         formControlName="companyType"
@@ -17,14 +20,17 @@
           Formulario.get('companyType')?.touched
         "
       >
-        <span>El nombre del producto <strong>es obligatorio</strong></span>
+        <span>Tipo de empresa<strong> es obligatorio</strong></span>
       </div>
     </div>
 
     <div>
+      <div class="text-start">
+        <label for="exampleFormControlInput1" class="form-label">Número de identificación</label>
+      </div>
       <input
         type="number"
-        class="form-control"
+        class="form-control mb-2"
         name="document"
         id="document"
         formControlName="document"
@@ -37,14 +43,17 @@
           Formulario.get('document')?.touched
         "
       >
-        <span>El nombre del producto <strong>es obligatorio</strong></span>
+        <span>Número de identificación<strong> es obligatorio</strong></span>
       </div>
     </div>
 
     <div>
+      <div class="text-start">
+        <label for="exampleFormControlInput1" class="form-label">Tipo de documento</label>
+      </div>
       <input
         type="number"
-        class="form-control"
+        class="form-control mb-2"
         name="documentType"
         id="documentType"
         formControlName="documentType"
@@ -57,14 +66,17 @@
           Formulario.get('documentType')?.touched
         "
       >
-        <span>El nombre del producto <strong>es obligatorio</strong></span>
+        <span>Tipo de documento<strong> es obligatorio</strong></span>
       </div>
     </div>
 
     <div>
+      <div class="text-start">
+        <label for="exampleFormControlInput1" class="form-label">Razón social del tarjetahabiente</label>
+      </div>
       <input
         type="text"
-        class="form-control"
+        class="form-control mb-2"
         name="fullName"
         id="fullName"
         formControlName="fullName"
@@ -77,14 +89,17 @@
           Formulario.get('fullName')?.touched
         "
       >
-        <span>El nombre del producto <strong>es obligatorio</strong></span>
+        <span>Razón social del tarjetahabiente<strong> es obligatorio</strong></span>
       </div>
     </div>
 
     <div>
+      <div class="text-start">
+        <label for="exampleFormControlInput1" class="form-label">Dirección del tarjetahabiente</label>
+      </div>
       <input
         type="text"
-        class="form-control"
+        class="form-control mb-2"
         name="address"
         id="address"
         formControlName="address"
@@ -97,14 +112,17 @@
           Formulario.get('address')?.touched
         "
       >
-        <span>El nombre del producto <strong>es obligatorio</strong></span>
+        <span>Dirección del tarjetahabiente<strong> es obligatorio</strong></span>
       </div>
     </div>
 
     <div>
+      <div class="text-start">
+        <label for="exampleFormControlInput1" class="form-label">	Número celular del tarjetahabiente</label>
+      </div>
       <input
         type="number"
-        class="form-control"
+        class="form-control mb-2"
         name="mobile"
         id="mobile"
         formControlName="mobile"
@@ -117,14 +135,17 @@
           Formulario.get('mobile')?.touched
         "
       >
-        <span>El nombre del producto <strong>es obligatorio</strong></span>
+        <span>Número celular del tarjetahabiente<strong> es obligatorio</strong></span>
       </div>
     </div>
 
     <div>
+      <div class="text-start">
+        <label for="exampleFormControlInput1" class="form-label">	Email del tarjetahabiente</label>
+      </div>
       <input
         type="text"
-        class="form-control"
+        class="form-control mb-2"
         name="email"
         id="email"
         formControlName="email"
@@ -137,14 +158,17 @@
           Formulario.get('email')?.touched
         "
       >
-        <span>El nombre del producto <strong>es obligatorio</strong></span>
+        <span>Email del tarjetahabiente<strong> es obligatorio</strong></span>
       </div>
     </div>
 
     <div>
+      <div class="text-start">
+        <label for="exampleFormControlInput1" class="form-label">Código alfanumérico único de maximo 20 caracteres</label>
+      </div>
       <input
         type="text"
-        class="form-control"
+        class="form-control mb-2"
         name="reference"
         id="reference"
         formControlName="reference"
@@ -157,14 +181,17 @@
           Formulario.get('reference')?.touched
         "
       >
-        <span>El nombre del producto <strong>es obligatorio</strong></span>
+        <span>Código alfanumérico único de maximo 20 caracteres<strong> es obligatorio</strong></span>
       </div>
     </div>
 
     <div>
+      <div class="text-start">
+        <label for="exampleFormControlInput1" class="form-label">Descripción del pago a realizar</label>
+      </div>
       <input
         type="text"
-        class="form-control"
+        class="form-control mb-2"
         name="description"
         id="description"
         formControlName="description"
@@ -177,14 +204,17 @@
           Formulario.get('description')?.touched
         "
       >
-        <span>El nombre del producto <strong>es obligatorio</strong></span>
+        <span>Descripción del pago a realizar<strong> es obligatorio</strong></span>
       </div>
     </div>
 
     <div>
+      <div class="text-start">
+        <label for="exampleFormControlInput1" class="form-label">Valor total a pagar </label>
+      </div>
       <input
         type="number"
-        class="form-control"
+        class="form-control mb-2"
         name="amount"
         id="amount"
         formControlName="amount"
@@ -197,14 +227,17 @@
           Formulario.get('amount')?.touched
         "
       >
-        <span>El nombre del producto <strong>es obligatorio</strong></span>
+        <span>Valor total a pagar <strong> es obligatorio</strong></span>
       </div>
     </div>
 
     <div>
+      <div class="text-start">
+        <label for="exampleFormControlInput1" class="form-label">Valor total con impuestos</label>
+      </div>
       <input
         type="number"
-        class="form-control"
+        class="form-control mb-2"
         name="amountWithTax"
         id="amountWithTax"
         formControlName="amountWithTax"
@@ -217,14 +250,17 @@
           Formulario.get('amountWithTax')?.touched
         "
       >
-        <span>El nombre del producto <strong>es obligatorio</strong></span>
+        <span>Valor total con impuestos<strong> es obligatorio</strong></span>
       </div>
     </div>
 
     <div>
+      <div class="text-start">
+        <label for="exampleFormControlInput1" class="form-label">Valor total sin impuestos</label>
+      </div>
       <input
         type="number"
-        class="form-control"
+        class="form-control mb-2"
         name="amountWithoutTax"
         id="amountWithoutTax"
         formControlName="amountWithoutTax"
@@ -237,14 +273,17 @@
           Formulario.get('amountWithoutTax')?.touched
         "
       >
-        <span>El nombre del producto <strong>es obligatorio</strong></span>
+        <span>Valor total sin impuestos<strong> es obligatorio</strong></span>
       </div>
     </div>
 
     <div>
+      <div class="text-start">
+        <label for="exampleFormControlInput1" class="form-label">Impuesto calculado </label>
+      </div>
       <input
         type="number"
-        class="form-control"
+        class="form-control mb-2"
         name="tax"
         id="tax"
         formControlName="tax"
@@ -257,14 +296,17 @@
           Formulario.get('tax')?.touched
         "
       >
-        <span>El nombre del producto <strong>es obligatorio</strong></span>
+        <span>Impuesto calculado <strong> es obligatorio</strong></span>
       </div>
     </div>
 
     <div>
+      <div class="text-start">
+        <label for="exampleFormControlInput1" class="form-label">Red de cobro</label>
+      </div>
       <input
         type="number"
-        class="form-control"
+        class="form-control mb-2"
         name="gateway"
         id="gateway"
         formControlName="gateway"
@@ -277,12 +319,15 @@
           Formulario.get('gateway')?.touched
         "
       >
-        <span>El nombre del producto <strong>es obligatorio</strong></span>
+        <span>Red de cobro<strong> es obligatorio</strong></span>
       </div>
     </div>
-    <button type="submit" [disabled]="Formulario.invalid">Enviar</button>
+    <button
+      type="submit"
+      [disabled]="Formulario.invalid"
+      class="btn btn-primary btn-lg mt-2"
+    >
+      Enviar
+    </button>
   </form>
 </div>
-
-
-

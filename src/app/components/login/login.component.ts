@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -10,17 +11,20 @@ export class LoginComponent implements OnInit {
   user=''
   password=''
 
-  constructor(private router: Router) {}
+  constructor(private router: Router,  private toastr: ToastrService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
   submit(): void {
 
 if (this.user==='test'&&this.password==='test') {
-  alert('hi');
+  
   localStorage.setItem('login','login');
   this.router.navigate(['/inicio']);
+  this.toastr.success('Bienvenido');
 }else{
-  alert('incorrecto')
+  this.toastr.error('Usuario o contraseña incorrectos');
+
 }
 
   }
