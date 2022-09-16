@@ -1,0 +1,57 @@
+
+
+
+<div *ngIf="!load">
+  <div class="spinner">
+      <img src="../../../assets//loading-buffering.gif" alt="" width="50%">
+  </div>
+</div>
+
+<div *ngIf="load">
+
+  <div class="container">
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Descripción</th>
+          <th scope="col">Estado</th>
+  
+          <th scope="col">Fecha</th>
+  
+          <th scope="col">Tipo</th>
+  
+          <th scope="col">Iva</th>
+  
+          <th scope="col">Total</th>
+  
+          <th scope="col">Nombre</th>
+  
+          <th scope="col">Cédula</th>
+  
+          <th scope="col">Teléfono</th>
+  
+          <th scope="col">Acciones</th>
+         
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let payment of payments">
+          <td>{{ payment.descripcion}}</td>
+          <td>{{ payment.estado}}</td>
+          <td>{{ payment.fecha_creacion}}</td>
+          <td>{{ payment.tercero.tipo}}</td>
+          <td>{{ payment.iva}}</td>
+          <td>{{ payment.total}}</td>
+          <td>{{ payment.tercero.razon_social}}</td>
+          <td>{{ payment.tercero.identificacion}}</td>
+          <td>{{ payment.tercero.telefonos}}</td>
+          <td><button (click)="status(payment.token)">Status</button>
+          <button (click)="reverse(payment.token)">Reverse</button></td>
+     
+  
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>

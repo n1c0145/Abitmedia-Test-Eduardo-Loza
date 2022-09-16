@@ -1,0 +1,288 @@
+<div class="container">
+  <p>payments-create-payment-request works!</p>
+  <form [formGroup]="Formulario" (ngSubmit)="enviar()">
+    <div>
+      <input
+        type="text"
+        class="form-control"
+        name="companyType"
+        id="companyType"
+        formControlName="companyType"
+        placeholder="companyType"
+      />
+      <div
+        class="text-danger"
+        *ngIf="
+          Formulario.get('companyType')?.hasError('required') &&
+          Formulario.get('companyType')?.touched
+        "
+      >
+        <span>El nombre del producto <strong>es obligatorio</strong></span>
+      </div>
+    </div>
+
+    <div>
+      <input
+        type="number"
+        class="form-control"
+        name="document"
+        id="document"
+        formControlName="document"
+        placeholder="document"
+      />
+      <div
+        class="text-danger"
+        *ngIf="
+          Formulario.get('document')?.hasError('required') &&
+          Formulario.get('document')?.touched
+        "
+      >
+        <span>El nombre del producto <strong>es obligatorio</strong></span>
+      </div>
+    </div>
+
+    <div>
+      <input
+        type="number"
+        class="form-control"
+        name="documentType"
+        id="documentType"
+        formControlName="documentType"
+        placeholder="documentType"
+      />
+      <div
+        class="text-danger"
+        *ngIf="
+          Formulario.get('documentType')?.hasError('required') &&
+          Formulario.get('documentType')?.touched
+        "
+      >
+        <span>El nombre del producto <strong>es obligatorio</strong></span>
+      </div>
+    </div>
+
+    <div>
+      <input
+        type="text"
+        class="form-control"
+        name="fullName"
+        id="fullName"
+        formControlName="fullName"
+        placeholder="fullName"
+      />
+      <div
+        class="text-danger"
+        *ngIf="
+          Formulario.get('fullName')?.hasError('required') &&
+          Formulario.get('fullName')?.touched
+        "
+      >
+        <span>El nombre del producto <strong>es obligatorio</strong></span>
+      </div>
+    </div>
+
+    <div>
+      <input
+        type="text"
+        class="form-control"
+        name="address"
+        id="address"
+        formControlName="address"
+        placeholder="address"
+      />
+      <div
+        class="text-danger"
+        *ngIf="
+          Formulario.get('address')?.hasError('required') &&
+          Formulario.get('address')?.touched
+        "
+      >
+        <span>El nombre del producto <strong>es obligatorio</strong></span>
+      </div>
+    </div>
+
+    <div>
+      <input
+        type="number"
+        class="form-control"
+        name="mobile"
+        id="mobile"
+        formControlName="mobile"
+        placeholder="mobile"
+      />
+      <div
+        class="text-danger"
+        *ngIf="
+          Formulario.get('mobile')?.hasError('required') &&
+          Formulario.get('mobile')?.touched
+        "
+      >
+        <span>El nombre del producto <strong>es obligatorio</strong></span>
+      </div>
+    </div>
+
+    <div>
+      <input
+        type="text"
+        class="form-control"
+        name="email"
+        id="email"
+        formControlName="email"
+        placeholder="email"
+      />
+      <div
+        class="text-danger"
+        *ngIf="
+          Formulario.get('email')?.hasError('required') &&
+          Formulario.get('email')?.touched
+        "
+      >
+        <span>El nombre del producto <strong>es obligatorio</strong></span>
+      </div>
+    </div>
+
+    <div>
+      <input
+        type="text"
+        class="form-control"
+        name="reference"
+        id="reference"
+        formControlName="reference"
+        placeholder="reference"
+      />
+      <div
+        class="text-danger"
+        *ngIf="
+          Formulario.get('reference')?.hasError('required') &&
+          Formulario.get('reference')?.touched
+        "
+      >
+        <span>El nombre del producto <strong>es obligatorio</strong></span>
+      </div>
+    </div>
+
+    <div>
+      <input
+        type="text"
+        class="form-control"
+        name="description"
+        id="description"
+        formControlName="description"
+        placeholder="description"
+      />
+      <div
+        class="text-danger"
+        *ngIf="
+          Formulario.get('description')?.hasError('required') &&
+          Formulario.get('description')?.touched
+        "
+      >
+        <span>El nombre del producto <strong>es obligatorio</strong></span>
+      </div>
+    </div>
+
+    <div>
+      <input
+        type="number"
+        class="form-control"
+        name="amount"
+        id="amount"
+        formControlName="amount"
+        placeholder="amount"
+      />
+      <div
+        class="text-danger"
+        *ngIf="
+          Formulario.get('amount')?.hasError('required') &&
+          Formulario.get('amount')?.touched
+        "
+      >
+        <span>El nombre del producto <strong>es obligatorio</strong></span>
+      </div>
+    </div>
+
+    <div>
+      <input
+        type="number"
+        class="form-control"
+        name="amountWithTax"
+        id="amountWithTax"
+        formControlName="amountWithTax"
+        placeholder="amountWithTax"
+      />
+      <div
+        class="text-danger"
+        *ngIf="
+          Formulario.get('amountWithTax')?.hasError('required') &&
+          Formulario.get('amountWithTax')?.touched
+        "
+      >
+        <span>El nombre del producto <strong>es obligatorio</strong></span>
+      </div>
+    </div>
+
+    <div>
+      <input
+        type="number"
+        class="form-control"
+        name="amountWithoutTax"
+        id="amountWithoutTax"
+        formControlName="amountWithoutTax"
+        placeholder="amountWithoutTax"
+      />
+      <div
+        class="text-danger"
+        *ngIf="
+          Formulario.get('amountWithoutTax')?.hasError('required') &&
+          Formulario.get('amountWithoutTax')?.touched
+        "
+      >
+        <span>El nombre del producto <strong>es obligatorio</strong></span>
+      </div>
+    </div>
+
+    <div>
+      <input
+        type="number"
+        class="form-control"
+        name="tax"
+        id="tax"
+        formControlName="tax"
+        placeholder="tax"
+      />
+      <div
+        class="text-danger"
+        *ngIf="
+          Formulario.get('tax')?.hasError('required') &&
+          Formulario.get('tax')?.touched
+        "
+      >
+        <span>El nombre del producto <strong>es obligatorio</strong></span>
+      </div>
+    </div>
+
+    <div>
+      <input
+        type="number"
+        class="form-control"
+        name="gateway"
+        id="gateway"
+        formControlName="gateway"
+        placeholder="gateway"
+      />
+      <div
+        class="text-danger"
+        *ngIf="
+          Formulario.get('gateway')?.hasError('required') &&
+          Formulario.get('gateway')?.touched
+        "
+      >
+        <span>El nombre del producto <strong>es obligatorio</strong></span>
+      </div>
+    </div>
+    <button type="submit" [disabled]="Formulario.invalid">Enviar</button>
+  </form>
+</div>
+
+
+

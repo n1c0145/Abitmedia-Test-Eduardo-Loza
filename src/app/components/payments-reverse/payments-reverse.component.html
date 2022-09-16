@@ -1,0 +1,25 @@
+<p>payments-reverse works!</p>
+
+<form [formGroup]="Formulario" (ngSubmit)="enviar()">
+    <div>
+      <input
+        type="text"
+        class="form-control"
+        name="token"
+        id="token"
+        formControlName="token"
+      />
+      <div
+      class="text-danger"
+      *ngIf="
+        Formulario.get('token')?.hasError('required')&& Formulario.get('token')?.touched"
+    >
+      <span
+        >El nombre del producto <strong>es obligatorio</strong></span
+      >
+    </div>
+    </div>
+  
+    <button type="submit" [disabled]="Formulario.invalid">Enviar</button>
+  </form>
+  
