@@ -1,6 +1,6 @@
 {
   "name": "abitmedia-test-eduardo-loza",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -10,10 +10,13 @@
   },
   "private": true,
   "dependencies": {
+    "@angular/animations": "^14.2.0",
+    "@angular/cdk": "^14.2.2",
     "@angular/common": "^14.2.0",
     "@angular/compiler": "^14.2.0",
     "@angular/core": "^14.2.0",
     "@angular/forms": "^14.2.0",
+    "@angular/material": "^14.2.2",
     "@angular/platform-browser": "^14.2.0",
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
