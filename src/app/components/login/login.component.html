@@ -1,34 +1,42 @@
 <div class="container text-center">
-<div><img src="../../../assets//logo-alpha-mail-4.png" alt="logo" width="60%"/></div>
-<div class="fs-2 fw-semibold">Prueba Técnica Eduardo Loza</div>
-<div class="fs-4 fw-semibold mt-2">Usuario y Contraseña de prueba</div>
-<div class="fw-bold">Usuario: test</div>
-<div class="fw-bold">Contraseña: test</div>
+  <div>
+    <img src="../../../assets//logo-alpha-mail-4.png" alt="logo" width="60%" />
+  </div>
+  <div class="fs-2 fw-semibold">Prueba Técnica Eduardo Loza</div>
+  <div class="fs-4 fw-semibold mt-2">Usuario y Contraseña de prueba</div>
+  <div class="fw-bold">Usuario: test</div>
+  <div class="fw-bold">Contraseña: test</div>
 
-<form (submit)="submit()" class="mt-1">
-  <div class="form-floating">
-    <input
-      class="form-control"
-      type="text"
-      name="user"
-      id="user"
-      [(ngModel)]="user"
-      required
-    />
-    <label for="floatingInput">Usuario</label>
-  </div>
-  <div class="form-floating mt-1">
-    <input
-      class="form-control"
-      type="password"
-      name="password"
-      id="password"
-      [(ngModel)]="password"
-      required
-    />
-    <label for="floatingInput">Contraseña</label>
-  </div>
-  <button mat-raised-button color="primary" type="submit" class="mt-4">Iniciar Sesión</button>
-  
-</form>
+  <form (submit)="submit()" class="mt-1">
+    <div class="form-floating">
+      <input
+        class="form-control"
+        type="text"
+        name="user"
+        id="user"
+        [(ngModel)]="user"
+        required
+      />
+      <label for="floatingInput">Usuario</label>
+    </div>
+    <div class="form-floating mt-1">
+      <input
+        class="form-control"
+        type="password"
+        name="password"
+        id="password"
+        [(ngModel)]="password"
+        required
+      />
+      <label for="floatingInput">Contraseña</label>
+    </div>
+    <button mat-raised-button color="primary" type="submit" class="mt-4">
+      Iniciar Sesión
+    </button>
+  </form>
 </div>
+
+
+
+
+

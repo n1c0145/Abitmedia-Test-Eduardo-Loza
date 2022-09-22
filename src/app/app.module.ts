@@ -7,6 +7,9 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import {MatButtonModule} from '@angular/material/button';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import {MatTableModule} from '@angular/material/table';
 
 //Components
 import { NavComponent } from './components/nav/nav.component';
@@ -15,7 +18,7 @@ import { PaymentsIndexComponent } from './components/payments-index/payments-ind
 import { PaymentsCreatePaymentRequestComponent } from './components/payments-create-payment-request/payments-create-payment-request.component';
 import { PaymentsStatusTransactionComponent } from './components/payments-status-transaction/payments-status-transaction.component';
 import { PaymentsReverseComponent } from './components/payments-reverse/payments-reverse.component';
-import { InicioComponent } from './components/inicio/inicio.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 
 @NgModule({
@@ -26,8 +29,9 @@ import { InicioComponent } from './components/inicio/inicio.component';
     PaymentsCreatePaymentRequestComponent,
     PaymentsStatusTransactionComponent,
     PaymentsReverseComponent,
-    InicioComponent,
     NavComponent,
+    DashboardComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -37,7 +41,10 @@ import { InicioComponent } from './components/inicio/inicio.component';
     HttpClientModule,
     BrowserAnimationsModule, 
     ToastrModule.forRoot(), 
-    MatButtonModule
+    MatButtonModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

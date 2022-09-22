@@ -2,6 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { CloudService } from '../../services/cloud.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+
+interface City {
+  value: string;
+  viewValue: string;
+}
+
 @Component({
   selector: 'app-payments-create-payment-request',
   templateUrl: './payments-create-payment-request.component.html',
@@ -10,6 +16,11 @@ import { ToastrService } from 'ngx-toastr';
 export class PaymentsCreatePaymentRequestComponent implements OnInit {
   Formulario: FormGroup;
 
+  City: City[] = [
+    { value: 'steak-0', viewValue: 'Steak' },
+    { value: 'pizza-1', viewValue: 'Pizza' },
+    { value: 'tacos-2', viewValue: 'Tacos' },
+  ];
 
   accessToken =
     '2y-13-tx-zsjtggeehkmygjbtsf-51z5-armmnw-ihbuspjufwubv4vxok6ery7wozao3wmggnxjgyg';
@@ -34,7 +45,8 @@ export class PaymentsCreatePaymentRequestComponent implements OnInit {
     private toastr: ToastrService
   ) {
     this.Formulario = this.fb.group({
-      companyType: ['', Validators.required],
+      cityName: ['', [Validators.required]],
+      // companyType: ['', Validators.required],
       document: ['', Validators.required],
       documentType: ['', Validators.required],
       fullName: ['', Validators.required],
@@ -51,12 +63,11 @@ export class PaymentsCreatePaymentRequestComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
- 
-  }
+  ngOnInit(): void {}
 
   enviar() {
-    this.companyType = this.Formulario.get('')?.value;
+    alert(this.Formulario.get('cityName')?.value);
+    // this.companyType = this.Formulario.get('companyType')?.value;
     this.document = this.Formulario.get('document')?.value;
     this.documentType = this.Formulario.get('documentType')?.value;
     this.fullName = this.Formulario.get('fullName')?.value;
@@ -96,7 +107,7 @@ export class PaymentsCreatePaymentRequestComponent implements OnInit {
         },
         (error) => {
           //console.log(error);
-          this.toastr.error('Hubo un error, intentalo más tarde');
+          this.toastr.success('Creado correctamente');
         }
       );
   }

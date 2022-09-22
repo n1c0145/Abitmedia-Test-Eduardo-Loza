@@ -46,9 +46,9 @@ export class PaymentsReverseComponent implements OnInit {
   }
 
 
-  reverso() {
-    this._cloudService.paymentReverse(this.accessToken,this.token).subscribe((data) => {
-      console.log(data);
-    });
-  }
+  // reverso() {
+  //   this._cloudService.paymentReverse(this.accessToken,this.token).subscribe((data) => {
+  //     console.log(data);
+  //   });
+  // }
 }

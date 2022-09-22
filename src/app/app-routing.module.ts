@@ -1,4 +1,4 @@
-import { InicioComponent } from './components/inicio/inicio.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PaymentsReverseComponent } from './components/payments-reverse/payments-reverse.component';
 import { PaymentsStatusTransactionComponent } from './components/payments-status-transaction/payments-status-transaction.component';
 import { PaymentsCreatePaymentRequestComponent } from './components/payments-create-payment-request/payments-create-payment-request.component';
@@ -10,8 +10,8 @@ import { ProtectGuard } from './guard/guard.guard';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
-  { path: 'inicio', component: InicioComponent, canActivate: [ProtectGuard] },
-  { path: 'payments-index', component: PaymentsIndexComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [ProtectGuard] },
+  { path: 'payments-index', component: PaymentsIndexComponent, canActivate: [ProtectGuard]  },
 
   {
     path: 'payments-create-payment-request',

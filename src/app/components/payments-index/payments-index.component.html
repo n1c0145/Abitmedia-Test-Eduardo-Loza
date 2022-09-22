@@ -5,43 +5,39 @@
 </div>
 
 <div *ngIf="load" class="container mt-5">
+  <a href="/payments-create-payment-request">Nueva solicitud</a>
   <div class="row">
     <div class="card">
       <div class="card-body text-center">
         <table class="table table-striped mt-3">
           <thead>
             <tr>
-              <th scope="col">Descripción</th>
-              <th scope="col">Estado</th>
+              <th scope="col">Red de cobro</th>
+              <th scope="col">Cliente</th>
+
+              <th scope="col">Referencia</th>
+
+              <th scope="col">Descripcion</th>
 
               <th scope="col">Fecha</th>
 
-              <th scope="col">Tipo</th>
-
-              <th scope="col">Iva</th>
-
               <th scope="col">Total</th>
 
-              <th scope="col">Nombre</th>
-
-              <th scope="col">Cédula</th>
-
-              <th scope="col">Teléfono</th>
+              <th scope="col">Estado</th>
 
               <th scope="col">Acciones</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let payment of payments">
-              <td>{{ payment.descripcion }}</td>
-              <td>{{ payment.estado }}</td>
-              <td>{{ payment.fecha_creacion }}</td>
-              <td>{{ payment.tercero.tipo }}</td>
-              <td>{{ payment.iva }}</td>
-              <td>{{ payment.total }}</td>
+              <td>{{ payment.transaccion.marca }}</td>
               <td>{{ payment.tercero.razon_social }}</td>
-              <td>{{ payment.tercero.identificacion }}</td>
-              <td>{{ payment.tercero.telefonos }}</td>
+              <td>{{ payment.transaccion.id_transaccion_cliente}}</td>
+              <td>{{ payment.descripcion }}</td>
+              <td>{{ payment.fecha_creacion
+              }}</td>
+              <td>{{ payment.total }}</td>
+              <td>{{ payment.estado }}</td>
               <td>
                 <button (click)="status(payment.token)" class="btn btn-outline-secondary">Ver estado <i class="fa-solid fa-eye"></i></button>
                 <button (click)="reverse(payment.token)" class="mt-2 btn btn-outline-warning">Realizar Reverso <i class="fa-solid fa-rotate-left"></i></button>
@@ -53,3 +49,5 @@
     </div>
   </div>
 </div>
+
+

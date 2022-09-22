@@ -1,32 +1,28 @@
 <div class="container text-center">
   <h2>Generación de una solicitud de pago</h2>
   <form [formGroup]="Formulario" (ngSubmit)="enviar()">
-    <div>
-      <div class="text-start">
-        <label for="exampleFormControlInput1" class="form-label">	Tipo de empresa</label>
+        <div>
+   <div class="text-start">
+        <label for="exampleFormControlInput1" class="form-label"> fghhh</label>
       </div>
-      <input
-        type="text"
-        class="form-control mb-2"
-        name="companyType"
-        id="companyType"
-        formControlName="companyType"
-        placeholder="companyType"
-      />
-      <div
-        class="text-danger"
-        *ngIf="
-          Formulario.get('companyType')?.hasError('required') &&
-          Formulario.get('companyType')?.touched
-        "
-      >
-        <span>Tipo de empresa<strong> es obligatorio</strong></span>
-      </div>
+      <select
+          class="custom-select mb-3"
+          formControlName="cityName"
+        >
+          <option value="">Choose City</option>
+          <option *ngFor="let city of City" [ngValue]="city.value">
+            {{ city.viewValue }}
+          </option>
+        </select> 
     </div>
+
+
 
     <div>
       <div class="text-start">
-        <label for="exampleFormControlInput1" class="form-label">Número de identificación</label>
+        <label for="exampleFormControlInput1" class="form-label"
+          >Número de identificación</label
+        >
       </div>
       <input
         type="number"
@@ -49,7 +45,9 @@
 
     <div>
       <div class="text-start">
-        <label for="exampleFormControlInput1" class="form-label">Tipo de documento</label>
+        <label for="exampleFormControlInput1" class="form-label"
+          >Tipo de documento</label
+        >
       </div>
       <input
         type="number"
@@ -72,7 +70,9 @@
 
     <div>
       <div class="text-start">
-        <label for="exampleFormControlInput1" class="form-label">Razón social del tarjetahabiente</label>
+        <label for="exampleFormControlInput1" class="form-label"
+          >Razón social del tarjetahabiente</label
+        >
       </div>
       <input
         type="text"
@@ -89,13 +89,19 @@
           Formulario.get('fullName')?.touched
         "
       >
-        <span>Razón social del tarjetahabiente<strong> es obligatorio</strong></span>
+        <span
+          >Razón social del tarjetahabiente<strong>
+            es obligatorio</strong
+          ></span
+        >
       </div>
     </div>
 
     <div>
       <div class="text-start">
-        <label for="exampleFormControlInput1" class="form-label">Dirección del tarjetahabiente</label>
+        <label for="exampleFormControlInput1" class="form-label"
+          >Dirección del tarjetahabiente</label
+        >
       </div>
       <input
         type="text"
@@ -112,13 +118,17 @@
           Formulario.get('address')?.touched
         "
       >
-        <span>Dirección del tarjetahabiente<strong> es obligatorio</strong></span>
+        <span
+          >Dirección del tarjetahabiente<strong> es obligatorio</strong></span
+        >
       </div>
     </div>
 
     <div>
       <div class="text-start">
-        <label for="exampleFormControlInput1" class="form-label">	Número celular del tarjetahabiente</label>
+        <label for="exampleFormControlInput1" class="form-label">
+          Número celular del tarjetahabiente</label
+        >
       </div>
       <input
         type="number"
@@ -135,13 +145,19 @@
           Formulario.get('mobile')?.touched
         "
       >
-        <span>Número celular del tarjetahabiente<strong> es obligatorio</strong></span>
+        <span
+          >Número celular del tarjetahabiente<strong>
+            es obligatorio</strong
+          ></span
+        >
       </div>
     </div>
 
     <div>
       <div class="text-start">
-        <label for="exampleFormControlInput1" class="form-label">	Email del tarjetahabiente</label>
+        <label for="exampleFormControlInput1" class="form-label">
+          Email del tarjetahabiente</label
+        >
       </div>
       <input
         type="text"
@@ -164,7 +180,9 @@
 
     <div>
       <div class="text-start">
-        <label for="exampleFormControlInput1" class="form-label">Código alfanumérico único de maximo 20 caracteres</label>
+        <label for="exampleFormControlInput1" class="form-label"
+          >Código alfanumérico único de maximo 20 caracteres</label
+        >
       </div>
       <input
         type="text"
@@ -181,13 +199,19 @@
           Formulario.get('reference')?.touched
         "
       >
-        <span>Código alfanumérico único de maximo 20 caracteres<strong> es obligatorio</strong></span>
+        <span
+          >Código alfanumérico único de maximo 20 caracteres<strong>
+            es obligatorio</strong
+          ></span
+        >
       </div>
     </div>
 
     <div>
       <div class="text-start">
-        <label for="exampleFormControlInput1" class="form-label">Descripción del pago a realizar</label>
+        <label for="exampleFormControlInput1" class="form-label"
+          >Descripción del pago a realizar</label
+        >
       </div>
       <input
         type="text"
@@ -204,13 +228,17 @@
           Formulario.get('description')?.touched
         "
       >
-        <span>Descripción del pago a realizar<strong> es obligatorio</strong></span>
+        <span
+          >Descripción del pago a realizar<strong> es obligatorio</strong></span
+        >
       </div>
     </div>
 
     <div>
       <div class="text-start">
-        <label for="exampleFormControlInput1" class="form-label">Valor total a pagar </label>
+        <label for="exampleFormControlInput1" class="form-label"
+          >Valor total a pagar
+        </label>
       </div>
       <input
         type="number"
@@ -233,7 +261,9 @@
 
     <div>
       <div class="text-start">
-        <label for="exampleFormControlInput1" class="form-label">Valor total con impuestos</label>
+        <label for="exampleFormControlInput1" class="form-label"
+          >Valor total con impuestos</label
+        >
       </div>
       <input
         type="number"
@@ -256,7 +286,9 @@
 
     <div>
       <div class="text-start">
-        <label for="exampleFormControlInput1" class="form-label">Valor total sin impuestos</label>
+        <label for="exampleFormControlInput1" class="form-label"
+          >Valor total sin impuestos</label
+        >
       </div>
       <input
         type="number"
@@ -279,7 +311,9 @@
 
     <div>
       <div class="text-start">
-        <label for="exampleFormControlInput1" class="form-label">Impuesto calculado </label>
+        <label for="exampleFormControlInput1" class="form-label"
+          >Impuesto calculado
+        </label>
       </div>
       <input
         type="number"
@@ -302,7 +336,9 @@
 
     <div>
       <div class="text-start">
-        <label for="exampleFormControlInput1" class="form-label">Red de cobro</label>
+        <label for="exampleFormControlInput1" class="form-label"
+          >Red de cobro</label
+        >
       </div>
       <input
         type="number"
