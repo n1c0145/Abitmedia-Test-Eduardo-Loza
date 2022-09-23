@@ -1,19 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements OnInit{
-  title = 'abitmedia-test-eduardo-loza';
-  public load: Boolean = false;
+export class AppComponent implements OnInit {
+
   ngOnInit(): void {
 
-   var login = localStorage.getItem('login');
-   if (login==="login") {
-    this.load=true;
-   }
   }
-
 }
