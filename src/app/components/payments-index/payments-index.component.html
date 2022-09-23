@@ -5,26 +5,29 @@
 </div>
 
 <div *ngIf="load" class="container mt-5">
-  <a href="/payments-create-payment-request">Nueva solicitud</a>
-  <div class="row">
+  <div class="d-flex flex-wrap justify-content-end">
+    <a href="/payments-create-payment-request" class="btn btn-primary me-5">Nueva solicitud<i class="fa-regular fa-plus ms-1"></i></a>
+
+  </div>
+  <div class="row py-3">
     <div class="card">
       <div class="card-body text-center">
-        <table class="table table-striped mt-3">
+        <table class="mat-elevation-z8">
           <thead>
             <tr>
-              <th scope="col">Cliente</th>
+              <th scope="col" class="fs-5 text-light fw-normal">Cliente</th>
 
-              <th scope="col">Referencia</th>
+              <th scope="col" class="fs-5 text-light fw-normal">Referencia</th>
 
-              <th scope="col">Descripcion</th>
+              <th scope="col" class="fs-5 text-light fw-normal">Descripcion</th>
 
-              <th scope="col">Fecha</th>
+              <th scope="col" class="fs-5 text-light fw-normal">Fecha</th>
 
-              <th scope="col">Total</th>
+              <th scope="col" class="fs-5 text-light fw-normal">Total</th>
 
-              <th scope="col">Estado</th>
+              <th scope="col" class="fs-5 text-light fw-normal">Estado</th>
 
-              <th scope="col">Acciones</th>
+              <th scope="col" class="fs-5 text-light fw-normal">Acciones</th>
             </tr>
           </thead>
           <tbody>
@@ -36,12 +39,13 @@
               <td>{{ payment.total }}</td>
               <td><span [ngClass]="{'status-pay': payment.estado == 'Pagado', 'status-outstanding' : payment.estado == 'Pendiente pago' }">{{ payment.estado }}</span></td>
               <td>
-                <button (click)="link(payment.link_id)">Link</button>
+                <button (click)="link(payment.link_id)" mat-raised-button color="primary" class="me-2">Link<i class="fa-solid fa-link ms-1"></i></button>
                 <button
                   (click)="reverse(payment.token)"
-                  class="mt-2 btn btn-outline-warning"
+                  class="mt-2 "
+                  mat-raised-button color="warn"
                 >
-                  Realizar Reverso <i class="fa-solid fa-rotate-left"></i>
+                  Reverso <i class="fa-solid fa-rotate-left"></i>
                 </button>
               </td>
             </tr>

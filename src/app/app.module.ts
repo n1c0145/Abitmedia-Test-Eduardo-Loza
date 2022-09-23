@@ -10,6 +10,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {MatTableModule} from '@angular/material/table';
+import {MatDividerModule} from '@angular/material/divider';
 
 //Components
 import { NavComponent } from './components/nav/nav.component';
@@ -40,7 +41,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     MatButtonModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatTableModule
+    MatTableModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
