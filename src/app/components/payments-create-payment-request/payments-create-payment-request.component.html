@@ -1,333 +1,318 @@
-<div class="container text-center">
-  <h2>Generación de una solicitud de pago</h2>
-  <form [formGroup]="Formulario" (ngSubmit)="enviar()">
-    <div>
-      <div class="text-start">
-        <label for="exampleFormControlInput1" class="form-label">	Tipo de empresa</label>
+<div class="container">
+  <h2>Nueva solicitud de pago</h2>
+  <mat-divider></mat-divider>
+  <form
+    [formGroup]="Formulario"
+    (ngSubmit)="enviar()"
+    class="mat-elevation-z8 m-3"
+  >
+    <div class="row">
+      <div class="col">
+        <label for="exampleFormControlInput1" class="form-label">
+          Tipo de empresa</label
+        >
+        <select class="form-select" formControlName="companyType">
+          <option value="">Elija un tipo de empresa</option>
+          <option *ngFor="let company of CompanyType" [ngValue]="company.value">
+            {{ company.viewValue }}
+          </option>
+        </select>
       </div>
-      <input
-        type="text"
-        class="form-control mb-2"
-        name="companyType"
-        id="companyType"
-        formControlName="companyType"
-        placeholder="companyType"
-      />
-      <div
-        class="text-danger"
-        *ngIf="
-          Formulario.get('companyType')?.hasError('required') &&
-          Formulario.get('companyType')?.touched
-        "
-      >
-        <span>Tipo de empresa<strong> es obligatorio</strong></span>
+      <div class="col">
+        <label for="exampleFormControlInput1" class="form-label"
+          >Número de identificación</label
+        >
+        <input
+          type="number"
+          class="form-control mb-2"
+          name="document"
+          id="document"
+          formControlName="document"
+          placeholder="Cedula o identificación"
+        />
+        <div
+          class="text-danger"
+          *ngIf="
+            Formulario.get('document')?.hasError('required') &&
+            Formulario.get('document')?.touched
+          "
+        >
+          <span>Número de identificación<strong> es obligatorio</strong></span>
+        </div>
       </div>
-    </div>
-
-    <div>
-      <div class="text-start">
-        <label for="exampleFormControlInput1" class="form-label">Número de identificación</label>
-      </div>
-      <input
-        type="number"
-        class="form-control mb-2"
-        name="document"
-        id="document"
-        formControlName="document"
-        placeholder="document"
-      />
-      <div
-        class="text-danger"
-        *ngIf="
-          Formulario.get('document')?.hasError('required') &&
-          Formulario.get('document')?.touched
-        "
-      >
-        <span>Número de identificación<strong> es obligatorio</strong></span>
-      </div>
-    </div>
-
-    <div>
-      <div class="text-start">
-        <label for="exampleFormControlInput1" class="form-label">Tipo de documento</label>
-      </div>
-      <input
-        type="number"
-        class="form-control mb-2"
-        name="documentType"
-        id="documentType"
-        formControlName="documentType"
-        placeholder="documentType"
-      />
-      <div
-        class="text-danger"
-        *ngIf="
-          Formulario.get('documentType')?.hasError('required') &&
-          Formulario.get('documentType')?.touched
-        "
-      >
-        <span>Tipo de documento<strong> es obligatorio</strong></span>
+      <div class="col">
+        <label for="exampleFormControlInput1" class="form-label">
+          Tipo de documento</label
+        >
+        <select class="form-select" formControlName="documentType">
+          <option value="">Elija un tipo de documento</option>
+          <option
+            *ngFor="let docuemnt of DocumentType"
+            [ngValue]="docuemnt.value"
+          >
+            {{ docuemnt.viewValue }}
+          </option>
+        </select>
       </div>
     </div>
 
-    <div>
-      <div class="text-start">
-        <label for="exampleFormControlInput1" class="form-label">Razón social del tarjetahabiente</label>
+    <div class="row">
+      <div class="col">
+        <label for="exampleFormControlInput1" class="form-label"
+          >Razón social del tarjetahabiente</label
+        >
+        <input
+          type="text"
+          class="form-control mb-2"
+          name="fullName"
+          id="fullName"
+          formControlName="fullName"
+          placeholder="Nombre completo"
+        />
+        <div
+          class="text-danger"
+          *ngIf="
+            Formulario.get('fullName')?.hasError('required') &&
+            Formulario.get('fullName')?.touched
+          "
+        >
+          <span
+            >Razón social del tarjetahabiente<strong>
+              es obligatorio</strong
+            ></span
+          >
+        </div>
       </div>
-      <input
-        type="text"
-        class="form-control mb-2"
-        name="fullName"
-        id="fullName"
-        formControlName="fullName"
-        placeholder="fullName"
-      />
-      <div
-        class="text-danger"
-        *ngIf="
-          Formulario.get('fullName')?.hasError('required') &&
-          Formulario.get('fullName')?.touched
-        "
-      >
-        <span>Razón social del tarjetahabiente<strong> es obligatorio</strong></span>
+      <div class="col">
+        <label for="exampleFormControlInput1" class="form-label"
+          >Dirección del tarjetahabiente</label
+        >
+        <input
+          type="text"
+          class="form-control mb-2"
+          name="address"
+          id="address"
+          formControlName="address"
+          placeholder="Dirección"
+        />
+        <div
+          class="text-danger"
+          *ngIf="
+            Formulario.get('address')?.hasError('required') &&
+            Formulario.get('address')?.touched
+          "
+        >
+          <span
+            >Dirección del tarjetahabiente<strong> es obligatorio</strong></span
+          >
+        </div>
       </div>
-    </div>
-
-    <div>
-      <div class="text-start">
-        <label for="exampleFormControlInput1" class="form-label">Dirección del tarjetahabiente</label>
-      </div>
-      <input
-        type="text"
-        class="form-control mb-2"
-        name="address"
-        id="address"
-        formControlName="address"
-        placeholder="address"
-      />
-      <div
-        class="text-danger"
-        *ngIf="
-          Formulario.get('address')?.hasError('required') &&
-          Formulario.get('address')?.touched
-        "
-      >
-        <span>Dirección del tarjetahabiente<strong> es obligatorio</strong></span>
-      </div>
-    </div>
-
-    <div>
-      <div class="text-start">
-        <label for="exampleFormControlInput1" class="form-label">	Número celular del tarjetahabiente</label>
-      </div>
-      <input
-        type="number"
-        class="form-control mb-2"
-        name="mobile"
-        id="mobile"
-        formControlName="mobile"
-        placeholder="mobile"
-      />
-      <div
-        class="text-danger"
-        *ngIf="
-          Formulario.get('mobile')?.hasError('required') &&
-          Formulario.get('mobile')?.touched
-        "
-      >
-        <span>Número celular del tarjetahabiente<strong> es obligatorio</strong></span>
-      </div>
-    </div>
-
-    <div>
-      <div class="text-start">
-        <label for="exampleFormControlInput1" class="form-label">	Email del tarjetahabiente</label>
-      </div>
-      <input
-        type="text"
-        class="form-control mb-2"
-        name="email"
-        id="email"
-        formControlName="email"
-        placeholder="email"
-      />
-      <div
-        class="text-danger"
-        *ngIf="
-          Formulario.get('email')?.hasError('required') &&
-          Formulario.get('email')?.touched
-        "
-      >
-        <span>Email del tarjetahabiente<strong> es obligatorio</strong></span>
+      <div class="col">
+        <label for="exampleFormControlInput1" class="form-label">
+          Número celular del tarjetahabiente</label
+        >
+        <input
+          type="number"
+          class="form-control mb-2"
+          name="mobile"
+          id="mobile"
+          formControlName="mobile"
+          placeholder="Celular"
+        />
+        <div
+          class="text-danger"
+          *ngIf="
+            Formulario.get('mobile')?.hasError('required') &&
+            Formulario.get('mobile')?.touched
+          "
+        >
+          <span
+            >Número celular del tarjetahabiente<strong>
+              es obligatorio</strong
+            ></span
+          >
+        </div>
       </div>
     </div>
 
-    <div>
-      <div class="text-start">
-        <label for="exampleFormControlInput1" class="form-label">Código alfanumérico único de maximo 20 caracteres</label>
+    <div class="row">
+      <div class="col">
+        <label for="exampleFormControlInput1" class="form-label">
+          Email del tarjetahabiente</label
+        >
+        <input
+          type="text"
+          class="form-control mb-2"
+          name="email"
+          id="email"
+          formControlName="email"
+          placeholder="Correo"
+        />
+        <div
+          class="text-danger"
+          *ngIf="
+            Formulario.get('email')?.hasError('required') &&
+            Formulario.get('email')?.touched
+          "
+        >
+          <span>Email del tarjetahabiente<strong> es obligatorio</strong></span>
+        </div>
       </div>
-      <input
-        type="text"
-        class="form-control mb-2"
-        name="reference"
-        id="reference"
-        formControlName="reference"
-        placeholder="reference"
-      />
-      <div
-        class="text-danger"
-        *ngIf="
-          Formulario.get('reference')?.hasError('required') &&
-          Formulario.get('reference')?.touched
-        "
-      >
-        <span>Código alfanumérico único de maximo 20 caracteres<strong> es obligatorio</strong></span>
+      <div class="col">
+        <label for="exampleFormControlInput1" class="form-label"
+          >Referencia</label
+        >
+        <input
+          type="text"
+          class="form-control mb-2"
+          name="reference"
+          id="reference"
+          formControlName="reference"
+          placeholder="Ejm: PM-GHDY67ghQ6"
+        />
+        <div
+          class="text-danger"
+          *ngIf="
+            Formulario.get('reference')?.hasError('required') &&
+            Formulario.get('reference')?.touched
+          "
+        >
+          <span
+            >Código alfanumérico único de maximo 20 caracteres<strong>
+              es obligatorio</strong
+            ></span
+          >
+        </div>
       </div>
-    </div>
-
-    <div>
-      <div class="text-start">
-        <label for="exampleFormControlInput1" class="form-label">Descripción del pago a realizar</label>
-      </div>
-      <input
-        type="text"
-        class="form-control mb-2"
-        name="description"
-        id="description"
-        formControlName="description"
-        placeholder="description"
-      />
-      <div
-        class="text-danger"
-        *ngIf="
-          Formulario.get('description')?.hasError('required') &&
-          Formulario.get('description')?.touched
-        "
-      >
-        <span>Descripción del pago a realizar<strong> es obligatorio</strong></span>
-      </div>
-    </div>
-
-    <div>
-      <div class="text-start">
-        <label for="exampleFormControlInput1" class="form-label">Valor total a pagar </label>
-      </div>
-      <input
-        type="number"
-        class="form-control mb-2"
-        name="amount"
-        id="amount"
-        formControlName="amount"
-        placeholder="amount"
-      />
-      <div
-        class="text-danger"
-        *ngIf="
-          Formulario.get('amount')?.hasError('required') &&
-          Formulario.get('amount')?.touched
-        "
-      >
-        <span>Valor total a pagar <strong> es obligatorio</strong></span>
-      </div>
-    </div>
-
-    <div>
-      <div class="text-start">
-        <label for="exampleFormControlInput1" class="form-label">Valor total con impuestos</label>
-      </div>
-      <input
-        type="number"
-        class="form-control mb-2"
-        name="amountWithTax"
-        id="amountWithTax"
-        formControlName="amountWithTax"
-        placeholder="amountWithTax"
-      />
-      <div
-        class="text-danger"
-        *ngIf="
-          Formulario.get('amountWithTax')?.hasError('required') &&
-          Formulario.get('amountWithTax')?.touched
-        "
-      >
-        <span>Valor total con impuestos<strong> es obligatorio</strong></span>
+      <div class="col">
+        <label for="exampleFormControlInput1" class="form-label"
+          >Descripción del pago a realizar</label
+        >
+        <input
+          type="text"
+          class="form-control mb-2"
+          name="description"
+          id="description"
+          formControlName="description"
+          placeholder="Descripción"
+        />
+        <div
+          class="text-danger"
+          *ngIf="
+            Formulario.get('description')?.hasError('required') &&
+            Formulario.get('description')?.touched
+          "
+        >
+          <span
+            >Descripción del pago a realizar<strong>
+              es obligatorio</strong
+            ></span
+          >
+        </div>
       </div>
     </div>
 
-    <div>
-      <div class="text-start">
-        <label for="exampleFormControlInput1" class="form-label">Valor total sin impuestos</label>
+    <div class="row">
+      <div class="col">
+        <label for="exampleFormControlInput1" class="form-label"
+          >Valor total a pagar
+        </label>
+        <input
+          type="number"
+          class="form-control mb-2"
+          name="amount"
+          id="amount"
+          formControlName="amount"
+        />
+        <div
+          class="text-danger"
+          *ngIf="
+            Formulario.get('amount')?.hasError('required') &&
+            Formulario.get('amount')?.touched
+          "
+        >
+          <span>Valor total a pagar <strong> es obligatorio</strong></span>
+        </div>
       </div>
-      <input
-        type="number"
-        class="form-control mb-2"
-        name="amountWithoutTax"
-        id="amountWithoutTax"
-        formControlName="amountWithoutTax"
-        placeholder="amountWithoutTax"
-      />
-      <div
-        class="text-danger"
-        *ngIf="
-          Formulario.get('amountWithoutTax')?.hasError('required') &&
-          Formulario.get('amountWithoutTax')?.touched
-        "
-      >
-        <span>Valor total sin impuestos<strong> es obligatorio</strong></span>
+      <div class="col">
+        <label for="exampleFormControlInput1" class="form-label"
+          >Valor total con impuestos</label
+        >
+        <input
+          type="number"
+          class="form-control mb-2"
+          name="amountWithTax"
+          id="amountWithTax"
+          formControlName="amountWithTax"
+        />
+        <div
+          class="text-danger"
+          *ngIf="
+            Formulario.get('amountWithTax')?.hasError('required') &&
+            Formulario.get('amountWithTax')?.touched
+          "
+        >
+          <span>Valor total con impuestos<strong> es obligatorio</strong></span>
+        </div>
       </div>
-    </div>
+      <div class="col">
+        <label for="exampleFormControlInput1" class="form-label"
+          >Valor total sin impuestos</label
+        >
+        <input
+          type="number"
+          class="form-control mb-2"
+          name="amountWithoutTax"
+          id="amountWithoutTax"
+          formControlName="amountWithoutTax"
+        />
+        <div
+          class="text-danger"
+          *ngIf="
+            Formulario.get('amountWithoutTax')?.hasError('required') &&
+            Formulario.get('amountWithoutTax')?.touched
+          "
+        >
+          <span>Valor total sin impuestos<strong> es obligatorio</strong></span>
+        </div>
+      </div>
 
-    <div>
-      <div class="text-start">
-        <label for="exampleFormControlInput1" class="form-label">Impuesto calculado </label>
-      </div>
-      <input
-        type="number"
-        class="form-control mb-2"
-        name="tax"
-        id="tax"
-        formControlName="tax"
-        placeholder="tax"
-      />
-      <div
-        class="text-danger"
-        *ngIf="
-          Formulario.get('tax')?.hasError('required') &&
-          Formulario.get('tax')?.touched
-        "
-      >
-        <span>Impuesto calculado <strong> es obligatorio</strong></span>
+      <div class="row">
+        <div class="col">
+          <label for="exampleFormControlInput1" class="form-label">
+            Impuesto</label
+          >
+          <select class="form-select" formControlName="tax">
+            <option value="">Elija el impuesto</option>
+            <option *ngFor="let taxes of Tax" [ngValue]="taxes.value">
+              {{ taxes.viewValue }}
+            </option>
+          </select>
+        </div>
+        <div class="col">
+          <label for="exampleFormControlInput1" class="form-label">
+            Red de cobro</label
+          >
+          <select class="form-select" formControlName="gateway">
+            <option value="">Elija una red de cobro</option>
+            <option *ngFor="let red of Gateway" [ngValue]="red.value">
+              {{ red.viewValue }}
+            </option>
+          </select>
+        </div>
       </div>
     </div>
+    <!-- fg -->
 
-    <div>
-      <div class="text-start">
-        <label for="exampleFormControlInput1" class="form-label">Red de cobro</label>
-      </div>
-      <input
-        type="number"
-        class="form-control mb-2"
-        name="gateway"
-        id="gateway"
-        formControlName="gateway"
-        placeholder="gateway"
-      />
-      <div
-        class="text-danger"
-        *ngIf="
-          Formulario.get('gateway')?.hasError('required') &&
-          Formulario.get('gateway')?.touched
-        "
-      >
-        <span>Red de cobro<strong> es obligatorio</strong></span>
-      </div>
-    </div>
     <button
       type="submit"
       [disabled]="Formulario.invalid"
-      class="btn btn-primary btn-lg mt-2"
+      mat-raised-button
+      color="primary"
+      class="mt-2 me-1"
     >
       Enviar
     </button>
+    <a mat-raised-button color="warn" href="/payments-index">Regresar</a>
   </form>
 </div>

@@ -4,3 +4,22 @@
     left: 60%;
     transform: translate(-50%, -50%);
 }
+
+.status-pay{
+    background-color: green;
+    border-radius: 10px;
+    padding: 2%;
+}
+
+.status-outstanding{
+    background-color: orange;
+    border-radius: 10px;
+    padding: 2%;
+}
+table {
+    width: 100%;
+  }
+
+  thead{
+    background-color: rgb(17, 17, 77);
+  }

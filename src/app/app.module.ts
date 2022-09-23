@@ -4,15 +4,21 @@ import { FormsModule,ReactiveFormsModule  } from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import {MatButtonModule} from '@angular/material/button';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import {MatTableModule} from '@angular/material/table';
+import {MatDividerModule} from '@angular/material/divider';
+
+//Components
+import { NavComponent } from './components/nav/nav.component';
 import { LoginComponent } from './components/login/login.component';
 import { PaymentsIndexComponent } from './components/payments-index/payments-index.component';
 import { PaymentsCreatePaymentRequestComponent } from './components/payments-create-payment-request/payments-create-payment-request.component';
-import { PaymentsStatusTransactionComponent } from './components/payments-status-transaction/payments-status-transaction.component';
-import { PaymentsReverseComponent } from './components/payments-reverse/payments-reverse.component';
-import { InicioComponent } from './components/inicio/inicio.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ToastrModule } from 'ngx-toastr';
-import { NavComponent } from './components/nav/nav.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+
 
 @NgModule({
   declarations: [
@@ -20,10 +26,9 @@ import { NavComponent } from './components/nav/nav.component';
     LoginComponent,
     PaymentsIndexComponent,
     PaymentsCreatePaymentRequestComponent,
-    PaymentsStatusTransactionComponent,
-    PaymentsReverseComponent,
-    InicioComponent,
     NavComponent,
+    DashboardComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -33,6 +38,11 @@ import { NavComponent } from './components/nav/nav.component';
     HttpClientModule,
     BrowserAnimationsModule, 
     ToastrModule.forRoot(), 
+    MatButtonModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatTableModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
