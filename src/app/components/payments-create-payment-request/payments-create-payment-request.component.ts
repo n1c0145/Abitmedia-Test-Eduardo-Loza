@@ -3,7 +3,7 @@ import { CloudService } from '../../services/cloud.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 
-interface City {
+interface Values {
   value: string;
   viewValue: string;
 }
@@ -16,10 +16,26 @@ interface City {
 export class PaymentsCreatePaymentRequestComponent implements OnInit {
   Formulario: FormGroup;
 
-  City: City[] = [
-    { value: 'steak-0', viewValue: 'Steak' },
-    { value: 'pizza-1', viewValue: 'Pizza' },
-    { value: 'tacos-2', viewValue: 'Tacos' },
+  CompanyType: Values[] = [
+    { value: 'Persona Natural', viewValue: 'Persona Natural' },
+    { value: 'Empresa', viewValue: 'Empresa' },
+  ];
+  DocumentType: Values[] = [
+    { value: '01', viewValue: 'Cédula de identidad' },
+    { value: '02', viewValue: 'RUC, Pasaporte' },
+    { value: '03', viewValue: 'ID del exterior' },
+  ];
+
+  Tax: Values[] = [
+    { value: '0.12', viewValue: 'IVA 12%' },
+    { value: '0.00', viewValue: '0%' },
+  ];
+
+  Gateway: Values[] = [
+    { value: '1', viewValue: 'Alignet' },
+    { value: '2', viewValue: 'Payphone' },
+    { value: '3', viewValue: 'Datafast' },
+    { value: '4', viewValue: 'Paymentez' },
   ];
 
   accessToken =
@@ -45,8 +61,7 @@ export class PaymentsCreatePaymentRequestComponent implements OnInit {
     private toastr: ToastrService
   ) {
     this.Formulario = this.fb.group({
-      cityName: ['', [Validators.required]],
-      // companyType: ['', Validators.required],
+      companyType: ['', Validators.required],
       document: ['', Validators.required],
       documentType: ['', Validators.required],
       fullName: ['', Validators.required],
@@ -66,49 +81,33 @@ export class PaymentsCreatePaymentRequestComponent implements OnInit {
   ngOnInit(): void {}
 
   enviar() {
-    alert(this.Formulario.get('cityName')?.value);
-    // this.companyType = this.Formulario.get('companyType')?.value;
-    this.document = this.Formulario.get('document')?.value;
-    this.documentType = this.Formulario.get('documentType')?.value;
-    this.fullName = this.Formulario.get('fullName')?.value;
-    this.address = this.Formulario.get('address')?.value;
-    this.mobile = this.Formulario.get('mobile')?.value;
-    this.email = this.Formulario.get('email')?.value;
-    this.reference = this.Formulario.get('reference')?.value;
-    this.description = this.Formulario.get('description')?.value;
-    this.amount = this.Formulario.get('amount')?.value;
-    this.amountWithTax = this.Formulario.get('amountWithTax')?.value;
-    this.amountWithoutTax = this.Formulario.get('amountWithoutTax')?.value;
-    this.tax = this.Formulario.get('tax')?.value;
-    this.gateway = this.Formulario.get('gateway')?.value;
+    var formData: any = new FormData();
+    formData.append('companyType', this.Formulario.get('companyType')?.value);
+    formData.append('document', this.Formulario.get('document')?.value);
+    formData.append('documentType', this.Formulario.get('documentType')?.value);
+    formData.append('fullName', this.Formulario.get('fullName')?.value);
+    formData.append('address', this.Formulario.get('address')?.value);
+    formData.append('mobile', this.Formulario.get('mobile')?.value);
+    formData.append('email', this.Formulario.get('email')?.value);
+    formData.append('reference', this.Formulario.get('reference')?.value);
+    formData.append('description', this.Formulario.get('description')?.value);
+    formData.append('amount', this.Formulario.get('amount')?.value);
+    formData.append('amountWithTax', this.Formulario.get('amountWithTax')?.value);
+    formData.append('amountWithoutTax', this.Formulario.get('amountWithoutTax')?.value);
+    formData.append('tax', this.Formulario.get('tax')?.value);
+    formData.append('gateway', this.Formulario.get('gateway')?.value);
+    formData.append('', this.Formulario.get('')?.value);
 
-    this._cloudService
-      .paymentCreate(
-        this.accessToken,
-        this.companyType,
-        this.document,
-        this.documentType,
-        this.fullName,
-        this.address,
-        this.mobile,
-        this.email,
-        this.reference,
-        this.description,
-        this.amount,
-        this.amountWithTax,
-        this.amountWithoutTax,
-        this.tax,
-        this.gateway
-      )
-      .subscribe(
-        (data) => {
-          // console.log(data);
-          this.toastr.success('Creado correctamente');
-        },
-        (error) => {
-          //console.log(error);
-          this.toastr.success('Creado correctamente');
-        }
-      );
+this._cloudService.paymentCreate(this.accessToken, formData).subscribe(
+      (data) => {
+        console.log(data);
+        this.toastr.success('Solicitud creada con exito');
+      },
+      (error) => {
+        this.toastr.error('Ocurrio un error intente de nuevo');
+
+       // console.log(error);
+      }
+    );
   }
 }

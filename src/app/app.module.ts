@@ -16,8 +16,6 @@ import { NavComponent } from './components/nav/nav.component';
 import { LoginComponent } from './components/login/login.component';
 import { PaymentsIndexComponent } from './components/payments-index/payments-index.component';
 import { PaymentsCreatePaymentRequestComponent } from './components/payments-create-payment-request/payments-create-payment-request.component';
-import { PaymentsStatusTransactionComponent } from './components/payments-status-transaction/payments-status-transaction.component';
-import { PaymentsReverseComponent } from './components/payments-reverse/payments-reverse.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 
@@ -27,8 +25,6 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     LoginComponent,
     PaymentsIndexComponent,
     PaymentsCreatePaymentRequestComponent,
-    PaymentsStatusTransactionComponent,
-    PaymentsReverseComponent,
     NavComponent,
     DashboardComponent,
    

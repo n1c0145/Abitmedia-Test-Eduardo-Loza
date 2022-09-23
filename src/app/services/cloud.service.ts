@@ -32,55 +32,10 @@ export class CloudService {
     );
   }
 
-  paymentCreate(
-    accesToken: string,
-    companyType: string,
-    document: string,
-    documentType: string,
-    fullName: string,
-    address: string,
-    mobile: string,
-    email: string,
-    reference: string,
-    description: string,
-    amount: Number,
-    amountWithTax: Number,
-    amountWithoutTax: Number,
-    tax: Number,
-    gateway: Number
-  ): Observable<any> {
-    return this.http.get(
-      this.url +
-        'create-payment-request?access-token=' +
-        accesToken +
-        '&companyType=' +
-        companyType +
-        '&document=' +
-        document +
-        '&documentType=' +
-        documentType +
-        '&fullName=' +
-        fullName +
-        '&address=' +
-        address +
-        '&mobile=' +
-        mobile +
-        '&email=' +
-        email +
-        '&reference=' +
-        reference +
-        '&description=' +
-        description +
-        '&amount=' +
-        amount +
-        '&amountWithTax=' +
-        amountWithTax +
-        '&amountWithoutTax=' +
-        amountWithoutTax +
-        '&tax=' +
-        tax +
-        '&gateway=' +
-        gateway
-    );
+  paymentCreate(accesToken:any,formData:any){
+return this.http.post(this.url+'create-payment-request?access-token='+accesToken,formData)
   }
+
+
+
 }

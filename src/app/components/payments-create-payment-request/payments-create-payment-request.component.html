@@ -1,22 +1,19 @@
 <div class="container text-center">
   <h2>Generación de una solicitud de pago</h2>
   <form [formGroup]="Formulario" (ngSubmit)="enviar()">
-        <div>
-   <div class="text-start">
-        <label for="exampleFormControlInput1" class="form-label"> fghhh</label>
-      </div>
-      <select
-          class="custom-select mb-3"
-          formControlName="cityName"
+    <div>
+      <div class="text-start">
+        <label for="exampleFormControlInput1" class="form-label">
+          Tipo de empresa</label
         >
-          <option value="">Choose City</option>
-          <option *ngFor="let city of City" [ngValue]="city.value">
-            {{ city.viewValue }}
-          </option>
-        </select> 
+      </div>
+      <select class="custom-select mb-3" formControlName="companyType">
+        <option value="">Elija un tipo de empresa</option>
+        <option *ngFor="let company of CompanyType" [ngValue]="company.value">
+          {{ company.viewValue }}
+        </option>
+      </select>
     </div>
-
-
 
     <div>
       <div class="text-start">
@@ -45,28 +42,18 @@
 
     <div>
       <div class="text-start">
-        <label for="exampleFormControlInput1" class="form-label"
-          >Tipo de documento</label
+        <label for="exampleFormControlInput1" class="form-label">
+          Tipo de documento</label
         >
       </div>
-      <input
-        type="number"
-        class="form-control mb-2"
-        name="documentType"
-        id="documentType"
-        formControlName="documentType"
-        placeholder="documentType"
-      />
-      <div
-        class="text-danger"
-        *ngIf="
-          Formulario.get('documentType')?.hasError('required') &&
-          Formulario.get('documentType')?.touched
-        "
-      >
-        <span>Tipo de documento<strong> es obligatorio</strong></span>
-      </div>
+      <select class="custom-select mb-3" formControlName="documentType">
+        <option value="">Elija un tipo de documento</option>
+        <option *ngFor="let docuemnt of DocumentType" [ngValue]="docuemnt.value">
+          {{ docuemnt.viewValue }}
+        </option>
+      </select>
     </div>
+
 
     <div>
       <div class="text-start">
@@ -246,7 +233,6 @@
         name="amount"
         id="amount"
         formControlName="amount"
-        placeholder="amount"
       />
       <div
         class="text-danger"
@@ -311,52 +297,30 @@
 
     <div>
       <div class="text-start">
-        <label for="exampleFormControlInput1" class="form-label"
-          >Impuesto calculado
-        </label>
+        <label for="exampleFormControlInput1" class="form-label">
+          Impuesto</label
+        >
       </div>
-      <input
-        type="number"
-        class="form-control mb-2"
-        name="tax"
-        id="tax"
-        formControlName="tax"
-        placeholder="tax"
-      />
-      <div
-        class="text-danger"
-        *ngIf="
-          Formulario.get('tax')?.hasError('required') &&
-          Formulario.get('tax')?.touched
-        "
-      >
-        <span>Impuesto calculado <strong> es obligatorio</strong></span>
-      </div>
+      <select class="custom-select mb-3" formControlName="tax">
+        <option value="">Elija una red de cobro</option>
+        <option *ngFor="let taxes of Tax" [ngValue]="taxes.value">
+          {{ taxes.viewValue }}
+        </option>
+      </select>
     </div>
 
     <div>
       <div class="text-start">
-        <label for="exampleFormControlInput1" class="form-label"
-          >Red de cobro</label
+        <label for="exampleFormControlInput1" class="form-label">
+          Tipo de documento</label
         >
       </div>
-      <input
-        type="number"
-        class="form-control mb-2"
-        name="gateway"
-        id="gateway"
-        formControlName="gateway"
-        placeholder="gateway"
-      />
-      <div
-        class="text-danger"
-        *ngIf="
-          Formulario.get('gateway')?.hasError('required') &&
-          Formulario.get('gateway')?.touched
-        "
-      >
-        <span>Red de cobro<strong> es obligatorio</strong></span>
-      </div>
+      <select class="custom-select mb-3" formControlName="gateway">
+        <option value="">Elija una red de cobro</option>
+        <option *ngFor="let red of Gateway" [ngValue]="red.value">
+          {{ red.viewValue }}
+        </option>
+      </select>
     </div>
     <button
       type="submit"

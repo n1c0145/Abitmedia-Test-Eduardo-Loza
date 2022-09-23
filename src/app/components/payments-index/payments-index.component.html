@@ -12,7 +12,6 @@
         <table class="table table-striped mt-3">
           <thead>
             <tr>
-              <th scope="col">Red de cobro</th>
               <th scope="col">Cliente</th>
 
               <th scope="col">Referencia</th>
@@ -30,17 +29,20 @@
           </thead>
           <tbody>
             <tr *ngFor="let payment of payments">
-              <td>{{ payment.transaccion.marca }}</td>
               <td>{{ payment.tercero.razon_social }}</td>
-              <td>{{ payment.transaccion.id_transaccion_cliente}}</td>
+              <td>{{ payment.transaccion.id_transaccion_cliente }}</td>
               <td>{{ payment.descripcion }}</td>
-              <td>{{ payment.fecha_creacion
-              }}</td>
+              <td>{{ payment.fecha_creacion }}</td>
               <td>{{ payment.total }}</td>
-              <td>{{ payment.estado }}</td>
+              <td><span [ngClass]="{'status-pay': payment.estado == 'Pagado', 'status-outstanding' : payment.estado == 'Pendiente pago' }">{{ payment.estado }}</span></td>
               <td>
-                <button (click)="status(payment.token)" class="btn btn-outline-secondary">Ver estado <i class="fa-solid fa-eye"></i></button>
-                <button (click)="reverse(payment.token)" class="mt-2 btn btn-outline-warning">Realizar Reverso <i class="fa-solid fa-rotate-left"></i></button>
+                <button (click)="link(payment.link_id)">Link</button>
+                <button
+                  (click)="reverse(payment.token)"
+                  class="mt-2 btn btn-outline-warning"
+                >
+                  Realizar Reverso <i class="fa-solid fa-rotate-left"></i>
+                </button>
               </td>
             </tr>
           </tbody>
@@ -49,5 +51,3 @@
     </div>
   </div>
 </div>
-
-
