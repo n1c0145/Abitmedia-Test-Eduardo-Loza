@@ -37,12 +37,10 @@ export class PaymentsIndexComponent implements OnInit {
     );
   }
 
-  link(link_id:any){
-
-window.location.href = "https://cloud.abitmedia.com/pagos/solicitudes/?t="+link_id
-
+  link(link_id: any) {
+    window.location.href =
+      'https://cloud.abitmedia.com/pagos/solicitudes/?t=' + link_id;
   }
-
 
   reverse(token: any) {
     this._cloudService.paymentReverse(this.access_token, token).subscribe(
@@ -50,6 +48,7 @@ window.location.href = "https://cloud.abitmedia.com/pagos/solicitudes/?t="+link_
         //console.log(data);
         if (data.message == 'Reverso realizado exitosamente') {
           this.toastr.info(data.message);
+        //  location.reload()
         } else {
           this.toastr.error(data.message);
         }
